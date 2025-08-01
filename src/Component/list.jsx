@@ -4,14 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
 
 
-const API = 'https://courselist-backend.onrender.com/api';
-//const API = 'http://localhost:5000/api'; // ✅ Backend API port
+// const API = 'https://courselist-backend.onrender.com/api';
+// //const API = 'http://localhost:5000/api'; // ✅ Backend API port
 
-const dummyStudentId = 'dummyStudent123';
+// const dummyStudentId = 'dummyStudent123';
 
 function List() {
   const [courses, setCourses] = useState([]);
   const [enrolled, setEnrolled] = useState([]);
+
+  const API = 'https://courselist-backend.onrender.com/api';
+//const API = 'http://localhost:5000/api'; // ✅ Backend API port
+
+const dummyStudentId = 'dummyStudent123';
 
   const fetchCourses = async () => {
     try {
