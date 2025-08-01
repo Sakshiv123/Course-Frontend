@@ -4,25 +4,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card, Button ,Badge} from 'react-bootstrap';
 
 
-const API = 'http://localhost:5000/api';
+const API = 'https://courselist-backend.onrender.com/api';
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem('token') || '');
+  // const [token, setToken] = useState(localStorage.getItem('token') || '');
   const [courses, setCourses] = useState([]);
   const [enrolled, setEnrolled] = useState([]);
   const [studentId, setStudentId] = useState('');
 
   const headers = { headers: { Authorization: `Bearer ${token}` } };
 
-  const handleLogin = async () => {
-    try {
-      const res = await axios.post(`${API}/login`, { studentId });
-      localStorage.setItem('token', res.data.token);
-      setToken(res.data.token);
-    } catch (err) {
-      alert('Login failed');
-    }
-  };
+  // const handleLogin = async () => {
+  //   try {
+  //     const res = await axios.post(`${API}/login`, { studentId });
+  //     localStorage.setItem('token', res.data.token);
+  //     setToken(res.data.token);
+  //   } catch (err) {
+  //     alert('Login failed');
+  //   }
+  // };
 
   const fetchCourses = async () => {
     const res = await axios.get(`${API}/courses`);
@@ -45,22 +45,22 @@ function App() {
 
   useEffect(() => {
     fetchCourses();
-    if (token) fetchEnrollments();
-  }, [token]);
+    // if (token) fetchEnrollments();
+  });
 
-  if (!token) {
-    return (
-      <div style={{ padding: 20 }}>
-        <h2>Login</h2>
-        <input
-          placeholder="Enter Student ID"
-          value={studentId}
-          onChange={(e) => setStudentId(e.target.value)}
-        />
-        <button onClick={handleLogin}>Login</button>
-      </div>
-    );
-  }
+  // if (!token) {
+  //   return (
+  //     <div style={{ padding: 20 }}>
+  //       <h2>Login</h2>
+  //       <input
+  //         placeholder="Enter Student ID"
+  //         value={studentId}
+  //         onChange={(e) => setStudentId(e.target.value)}
+  //       />
+  //       <button onClick={handleLogin}>Login</button>
+  //     </div>
+  //   );
+  // }
 
  return (
   <div style={{ backgroundColor: '#1c1c1e', minHeight: '100vh', paddingBottom: '2rem' }}>
