@@ -7,7 +7,7 @@ const EnrollmentList = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API = 'http://localhost:5000/api';
+   const API = 'https://courselist-backend.onrender.com/api';
 
   // Fetch all courses
   const fetchCourses = async () => {
